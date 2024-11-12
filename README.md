@@ -28,7 +28,11 @@
 
 ## Screenshots
 
-_..._
+<p align="center">
+  <img src="https://github.com/Saydulayev/MyHabits/blob/main/MyHabits/Preview%20Content/Screenshots/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202024-11-12%20at%2012.51.11.png" width="200">
+  <img src="https://github.com/Saydulayev/MyHabits/blob/main/MyHabits/Preview%20Content/Screenshots/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202024-11-12%20at%2012.51.18.png" width="200">
+  <img src="https://github.com/Saydulayev/MyHabits/blob/main/MyHabits/Preview%20Content/Screenshots/Simulator%20Screenshot%20-%20iPhone%2016%20Pro%20-%202024-11-12%20at%2012.52.31.png" width="200">
+</p>
 
 ## Installation
 
