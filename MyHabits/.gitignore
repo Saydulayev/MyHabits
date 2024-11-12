@@ -1,10 +1,13 @@
-# Xcode
+# macOS specific files
 .DS_Store
+
+# Xcode specific files
 *.xcuserstate
 *.xcscmblueprint
 *.xccheckout
 *.xcworkspace
 !default.xcworkspace
+*.xcuserdatad/
 
 # Swift Package Manager
 .build/
@@ -12,18 +15,9 @@ Packages/
 Package.pins
 Package.resolved
 
-# Xcode specific files
+# Xcode Derived Data
 DerivedData/
-*.hmap
-*.ipa
-*.dSYM.zip
-*.dSYM
-*.xcuserdatad/
-*.xcuserdata/
-*.swp
-*.swm
-*.xccheckout
-.idea/
+build/
 
 # CocoaPods
 Pods/
@@ -51,26 +45,11 @@ fastlane/report.xml
 timeline.xctimeline
 playground.xcworkspace
 
-# Build folders
-build/
-*.pbxuser
-*.mode1v3
-*.mode2v3
-*.perspectivev3
-*.swiftpm/
-.build/
-
-# SPM specific
-Packages/
-Package.resolved
-.swiftpm/
-
 # Archive files
 *.xcarchive
 
 # Xcode environment
 xcuserdata/
-.idea/
 
 # App specific files
 *.ipa
@@ -84,3 +63,7 @@ xcuserdata/
 # SwiftLint, SwiftFormat
 .swiftlint.yml
 .swiftformat
+
+# Temporary and log files
+*.log
+*.tmp
