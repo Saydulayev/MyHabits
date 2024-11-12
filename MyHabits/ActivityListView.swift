@@ -14,8 +14,8 @@ struct ActivityListView: View {
     
     var body: some View {
         ZStack {
-            Color.blue.opacity(0.1) // Светло-синий фон для всего экрана
-                .ignoresSafeArea() // Покрывает всю область, включая безопасные зоны
+            Color.blue.opacity(0.1)
+                .ignoresSafeArea()
             
             List {
                 ForEach(activities.items) { activity in
@@ -27,7 +27,7 @@ struct ActivityListView: View {
                 .onMove(perform: moveActivity)
             }
             .listStyle(.plain)
-            .background(Color.clear) // Прозрачный фон для самой List, чтобы ZStack был виден
+            .background(Color.blue.opacity(0.1))
         }
         .navigationTitle("Habit Tracker")
         .toolbar {
@@ -60,26 +60,27 @@ struct ActivityListView: View {
 
 extension View {
     func addActivityButtonStyle() -> some View {
-        self.font(.title2)
-            .fontDesign(.serif).bold()
-            .foregroundColor(.black)
-                    .padding()
-                    .frame(width: 250)
-                    .background(
-                        ZStack {
-                            Color(#colorLiteral(red: 0.7608050108, green: 0.8164883852, blue: 0.9259157777, alpha: 1))
-                            
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundColor(.black)
-                                .blur(radius: 4)
-                                .offset(x: -8, y: -8)
-                            
-                            RoundedRectangle(cornerRadius: 20)
-                                .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.1019607857, green: 0.2784313858, blue: 0.400000006, alpha: 1)), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
-                                .padding(2)
-                            
-                        })
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
+        self.font(.title3)
+            .fontWeight(.semibold)
+            .foregroundColor(.white)
+            .padding()
+            .frame(width: 250)
+            .background(
+                RoundedRectangle(cornerRadius: 25)
+                    .fill(
+                        LinearGradient(
+                            gradient: Gradient(colors: [Color(.systemIndigo), Color(.systemBlue).opacity(0.9)]),
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                    .shadow(color: Color.black.opacity(0.3), radius: 8, x: 4, y: 4)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 25)
+                    .stroke(Color.white.opacity(0.2), lineWidth: 1)
+            )
+            .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
 

@@ -15,26 +15,37 @@ struct AddActivityView: View {
 
     var body: some View {
         NavigationStack {
-            Form {
-                TextField("Title", text: $title)
-                TextField("Description", text: $description)
-            }
-            .navigationTitle("Add New Activity")
-            .toolbar {
-                ToolbarItem(placement: .automatic) {
-                    Button("Save") {
-                        let activity = Activity(title: title, description: description)
-                        activities.items.append(activity)
-                        dismiss()
+            ZStack {
+                Color.blue.opacity(0.2)
+                    .ignoresSafeArea()
+                VStack(alignment: .leading, spacing: 16) {
+                    TextField("Title", text: $title)
+                    Divider()
+                        .background(.primary)
+                    TextField("Description", text: $description)
+                }
+                .padding()
+                .background(Color.secondary.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding()
+                .navigationTitle("Add New Activity")
+                .toolbar {
+                    ToolbarItem(placement: .automatic) {
+                        Button("Save") {
+                            let activity = Activity(title: title, description: description)
+                            activities.items.append(activity)
+                            dismiss()
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .cancellationAction) {
+                        Button("Cancel") {
+                            dismiss()
+                        }
                     }
                 }
-                
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
-                }
             }
+
         }
     }
 }

@@ -13,31 +13,31 @@ struct EditActivityView: View {
     @State private var editedTitle: String
     @State private var editedDescription: String
     @Environment(\.dismiss) private var dismiss
-
+    
     init(activity: Activity, activities: Binding<Activities>) {
         self.activity = activity
         self._activities = activities
         _editedTitle = State(initialValue: activity.title)
         _editedDescription = State(initialValue: activity.description)
     }
-
+    
     var body: some View {
-        ZStack {
-            Color.blue.opacity(0.1)
-                .ignoresSafeArea()
-
-            NavigationView {
-                Form {
-                    Section(header: Text("Edit Title")) {
+        NavigationView {
+            ZStack {
+                Color.blue.opacity(0.2)
+                    .ignoresSafeArea()
+                
+                VStack(alignment: .leading, spacing: 16) {
                         TextField("Title", text: $editedTitle)
-                    }
-
-                    Section(header: Text("Edit Description")) {
+                    
+                    Divider()
+                        .background(.primary)
                         TextField("Description", text: $editedDescription)
-                    }
                 }
-                .scrollContentBackground(.hidden) // Убираем стандартный фон Form
-                .background(Color.clear) // Прозрачный фон для Form
+                .padding()
+                .background(Color.secondary.opacity(0.1))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding()
                 .navigationTitle("Edit Activity")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
@@ -56,7 +56,6 @@ struct EditActivityView: View {
                     }
                 }
             }
-            .background(Color.clear) // Прозрачный фон для NavigationView
         }
     }
 }
