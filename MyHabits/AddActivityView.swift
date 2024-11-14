@@ -12,6 +12,10 @@ struct AddActivityView: View {
     @State private var title = ""
     @State private var description = ""
     @State var activities: Activities
+    
+    var disabled: Bool {
+        title.count < 3 
+    }
 
     var body: some View {
         NavigationStack {
@@ -36,6 +40,7 @@ struct AddActivityView: View {
                             activities.items.append(activity)
                             dismiss()
                         }
+                        .disabled(disabled)
                     }
                     
                     ToolbarItem(placement: .cancellationAction) {

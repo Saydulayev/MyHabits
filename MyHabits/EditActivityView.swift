@@ -21,6 +21,10 @@ struct EditActivityView: View {
         _editedDescription = State(initialValue: activity.description)
     }
     
+    var disabled: Bool {
+        editedTitle.count < 3
+    }
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -53,6 +57,7 @@ struct EditActivityView: View {
                             }
                             dismiss()
                         }
+                        .disabled(disabled)
                     }
                 }
             }
